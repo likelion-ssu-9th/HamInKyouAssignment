@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone #pub_date 위해서
 from .models import Post
 
+# 페이지 렌더링할 때는 .html로 하고
+# 페이지 리다이렉션할 때는 그냥 url name으로 하는구나!
+
 # Create your views here.
 # 메인페이지 렌더링
 def home(request):
@@ -38,3 +41,9 @@ def update(request, postId):
     update_post.pub_date = timezone.now()
     update_post.save()
     return redirect('detail', update_post.id)
+
+# 삭제하는 API
+def delete(request, postId):
+    delete_post = Post.objects.get(id=postId)
+    delete_post.delete()
+    return redirect('home')
