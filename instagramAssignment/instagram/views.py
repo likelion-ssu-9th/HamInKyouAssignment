@@ -25,4 +25,16 @@ def create(request):
     new_post.save()
     return redirect('detail', new_post.id)
 
-    
+# 수정 페이지 렌더링
+def edit(request, postId):
+    edit_post = Post.objects.get(id= postId)
+    return render(request,'edit.html',{'post': edit_post})
+
+# 수정하는 API
+def update(request, postId):
+    update_post = Post.objects.get(id = postId)
+    update_post.writer = request.POST["writer"]
+    update_post.body = request.POST["body"]
+    update_post.pub_date = timezone.now()
+    update_post.save()
+    return redirect('detail', update_post.id)

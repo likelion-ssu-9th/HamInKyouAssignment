@@ -1,8 +1,12 @@
 <a href="{% url 'new' %}">create post</a>
+<br />
+<br />
 {% for post in posts %}
 <a href="{%url 'detail' post.id%}">
   <p>{{post.writer}}</p>
   <p>{{post.pub_date}}</p>
   <p>{{post.body}}</p>
 </a>
+<br />
+<br />
 {% endfor %}
