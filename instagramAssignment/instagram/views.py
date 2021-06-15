@@ -23,7 +23,7 @@ def new(request):
 def create(request):
     new_post = Post()
     new_post.writer = request.POST["writer"]
-    new_post.body = request.POST["body"]
+    new_post.image = request.FILES['image']
     new_post.pub_date = timezone.now()
     new_post.save()
     return redirect('detail', new_post.id)
@@ -37,7 +37,7 @@ def edit(request, postId):
 def update(request, postId):
     update_post = Post.objects.get(id = postId)
     update_post.writer = request.POST["writer"]
-    update_post.body = request.POST["body"]
+    update_post.image = request.FILES["image"]
     update_post.pub_date = timezone.now()
     update_post.save()
     return redirect('detail', update_post.id)

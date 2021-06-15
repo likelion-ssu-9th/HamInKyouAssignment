@@ -1,10 +1,14 @@
 {% extends 'base.html' %} {% block content %}
-<form action="{% url 'update' post.id%}" method="post">
+<form
+  action="{% url 'update' post.id%}"
+  method="post"
+  enctype="multipart/form-data"
+>
   <!--method POST를 썼다면 아래의 토큰을 꼭 명시해주자!-->
   {%csrf_token%}
 
-  <p>작성자:<input type="text" name="writer" value="{{post.writer}}" /></p>
-  본문:<textarea name="body" cols="30" rows="10">{{post.body}}</textarea>
+  <p>작성자: <input type="text" name="writer" value="{{post.writer}}" /></p>
+  <p>사진: <input type="file" name="image" /></p>
   <button type="submit">submit</button>
 </form>
 {% endblock %}

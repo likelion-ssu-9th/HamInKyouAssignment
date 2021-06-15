@@ -128,6 +128,13 @@ STATICFILES_DIRS = []
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #static 파일을 어디에 모을건지
 
+
+MEDIA_URL = '/media/'
+#이용자에게 사진을 보내줄 때, 그 URL 맨 첨에 붙는 url
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#이용자가 업로드한 파일을 모으는 곳
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
