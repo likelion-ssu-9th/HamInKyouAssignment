@@ -1,0 +1,63 @@
+.signUp_container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  border-radius: 3px;
+  width: 400px;
+  padding: 80px 40px;
+}
+
+.signUp_container img {
+  height: 51px;
+  object-fit: contain;
+}
+
+.joinLetter {
+  text-align: center;
+  font-size: 20px;
+  color: gray;
+}
+
+.line {
+  width: 100%;
+  border: 0.5px solid;
+  margin-bottom: 40px;
+}
+.signUp_container input {
+  border: 1px solid rgba(var(--ca6, 219, 219, 219), 1);
+  border-radius: 3px;
+  padding: 10px 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.signUp_container button {
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  height: 36px;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  background-color: lightskyblue;
+}
+
+.joinInsta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  border-radius: 3px;
+  width: 400px;
+  margin-top: 15px;
+}
+
+.joinBtn {
+  font-size: 15px;
+  color: blue;
+  font-weight: bold;
+  border: 0;
+  background-color: inherit;
+}

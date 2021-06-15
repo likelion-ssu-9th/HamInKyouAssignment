@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+header,
+main {
+  width: 900px;
+  display: flex;
+}
+
+header {
+  margin-top: 100px;
+  align-items: center;
+}
+
+.profileImgBox button {
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.profileImgBox img {
+  border-radius: 50%;
+}
+
+.profileInfoBox {
+  margin-left: 100px;
+}
+
+.UserNickNameBox {
+  display: flex;
+  align-items: flex-end;
+}
+
+.UserNickNameBox h1 {
+  margin: 0;
+}
+
+.UserNickNameBox button {
+  margin-left: 15px;
+  padding: 3px 20px;
+}
+
+.UserFeedInfo ul {
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+}
+
+.UserFeedInfo li {
+  list-style: none;
+  margin: 0 30px;
+}
+
+main {
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.postCard {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.postCard img {
+  width: 300px;
+  height: 300px;
+}
+
+.postCard ul {
+  margin: 0;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.postCard ul li {
+  list-style: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.postCard:hover ul {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}

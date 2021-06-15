@@ -1,5 +1,9 @@
 {% extends 'base.html' %} {% block content %}
-
+<!--
+static 넣으려면 이렇게 합시다.
+{% load static %}
+<img src="{% static 'img/ssu_likelion_logo.png'%}" />
+-->
 <a href="{% url 'new' %}">create post</a>
 <br />
 <br />

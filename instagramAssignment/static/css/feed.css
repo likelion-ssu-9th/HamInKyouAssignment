@@ -1,0 +1,41 @@
+.cardViewSection {
+  background-color: white;
+  width: 450px;
+}
+
+.cardView header {
+  padding: 10px;
+}
+
+.userNickName {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.cardImage img {
+  width: 100%;
+}
+
+.cardInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardInfo img {
+  width: 23px;
+}
+
+.comment {
+  margin-top: 10px;
+}
+
+.comment_form {
+  margin-top: 10px;
+}
+
+.comment_form input {
+  width: 100%;
+  padding: 8px 5px;
+  border: 0;
+  border-top: rgb(228, 227, 227) 1px solid;
+}
