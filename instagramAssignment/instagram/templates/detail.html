@@ -1,5 +1,7 @@
+{% extends 'base.html' %} {% block content %}
 <p>{{post.writer}}</p>
 <p>{{post.pub_date}}</p>
 <p>{{post.body}}</p>
 <a href="{% url 'edit' post.id%}">수정하기</a>
 <a href="{% url 'delete' post.id%}">삭제하기</a>
+{% endblock %}

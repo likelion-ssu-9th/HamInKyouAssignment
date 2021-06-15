@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Instagram</title>
+  </head>
+  <body>
+    <header>
+      <div class="left_box">
+        <div class="favicon_fame">
+          <img
+            src="../img/line_favicon.png"
+            alt="인스타 로고"
+            class="faviconFrame"
+          />
+        </div>
+        <div class="line">
+          <img src="../img/logo_text.png" alt="인스타 글씨" class="logo" />
+        </div>
+      </div>
+
+      <div class="right_box">
+        <div class="heart_box">
+          <img src="../img/liked.png" alt="알림" class="notification" />
+        </div>
+        <div class="myInfo_box">
+          <img src="../img/myinfo.png" alt="내 프로필" class="myInfo" />
+        </div>
+      </div>
+    </header>
+    <div class="container">{% block content %} {% endblock %}</div>
+  </body>
+</html>

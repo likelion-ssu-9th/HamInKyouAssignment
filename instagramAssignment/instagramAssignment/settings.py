@@ -55,7 +55,7 @@ ROOT_URLCONF = 'instagramAssignment.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['instagramAssignment/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,3 +1,4 @@
+{% extends 'base.html' %} {% block content %}
 <form action="{% url 'create' %}" method="post">
   <!--method POST를 썼다면 아래의 토큰을 꼭 명시해주자!-->
   {%csrf_token%}
@@ -6,3 +7,4 @@
   본문:<textarea name="body" cols="30" rows="10"></textarea>
   <button type="submit">submit</button>
 </form>
+{% endblock %}
