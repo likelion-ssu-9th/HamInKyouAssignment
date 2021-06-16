@@ -12,6 +12,7 @@ def home(request):
     posts = Post.objects.all()
     return render(request, 'home.html', {'posts':posts})
 # 디테일 페이지 렌더링
+
 def detail(request, postId):
     post = get_object_or_404(Post, pk = postId)
     return render(request, 'detail.html', {'post':post})
@@ -44,12 +45,19 @@ def edit(request, postId):
 
 # 수정하는 API
 def update(request, postId):
-    update_post = Post.objects.get(id = postId)
-    update_post.writer = request.POST["writer"]
-    update_post.image = request.FILES["image"]
-    update_post.pub_date = timezone.now()
-    update_post.save()
-    return redirect('detail', update_post.id)
+    form = PostForm(request.POST,request.FILES)
+    if form.is_valid():
+        update_post = form.save(commit=False)
+        update_post.pub_date = timezone.now()
+        update_post.save()
+        return redirect('detail', update_post.id)
+    return redirect('home')
+    #update_post = Post.objects.get(id = postId)
+    #update_post.writer = request.POST["writer"]
+    #update_post.image = request.FILES["image"]
+    #update_post.pub_date = timezone.now()
+    #update_post.save()
+    #return redirect('detail', update_post.id)
 
 # 삭제하는 API
 def delete(request, postId):
