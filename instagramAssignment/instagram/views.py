@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone #pub_date 위해서
 from .models import Post
+from .forms import PostForm
 
 # 페이지 렌더링할 때는 .html로 하고
 # 페이지 리다이렉션할 때는 그냥 url name으로 하는구나!
@@ -17,16 +18,24 @@ def detail(request, postId):
 
 # 생성 페이지 렌더링
 def new(request):
-    return render(request,'new.html')
+    form = PostForm()
+    return render(request,'new.html',{'form':form})
 
 # 생성하는 API
 def create(request):
-    new_post = Post()
-    new_post.writer = request.POST["writer"]
-    new_post.image = request.FILES['image']
-    new_post.pub_date = timezone.now()
-    new_post.save()
-    return redirect('detail', new_post.id)
+    form = PostForm(request.POST,request.FILES)
+    if form.is_valid():
+        new_post = form.save(commit=False)
+        new_post.pub_date = timezone.now()
+        new_post.save()
+        return redirect('detail', new_post.id)
+    return redirect('home')
+    #new_post = Post()
+    #new_post.writer = request.POST["writer"]
+    #new_post.image = request.FILES['image']
+    #new_post.pub_date = timezone.now()
+    #new_post.save()
+    #return redirect('detail', new_post.id)
 
 # 수정 페이지 렌더링
 def edit(request, postId):
