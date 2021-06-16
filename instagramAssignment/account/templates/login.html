@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 <form action="{% url 'login' %}" method="post">
   <!--method POST를 썼다면 아래의 토큰을 꼭 명시해주자!-->
-  {%csrf_token%} {{form.as_p}}
+  {%csrf_token%}
+  <p>아이디: <input type="text" name="userId" /></p>
+  <p>비밀번호: <input type="password" name="password" /></p>
   <button type="submit">submit</button>
 </form>
 {% endblock %}
