@@ -8,11 +8,13 @@ static 넣으려면 이렇게 합시다.
 <br />
 <br />
 {% for post in posts %}
-<a href="{%url 'detail' post.id%}">
-  <p>{{post.writer}}</p>
+<div>
+  <a href="{%url 'profile' post.writer.id%}"><p>{{post.writer.nickName}}</p></a>
   <p>{{post.pub_date}}</p>
-  <p><img src="{{post.image.url}}" /></p>
-</a>
+  <a href="{%url 'detail' post.id%}"
+    ><p><img src="{{post.image.url}}" /></p
+  ></a>
+</div>
 <br />
 <br />
 {% endfor %} {% endblock %}

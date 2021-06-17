@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone #pub_date 위해서
 from .models import Post
+from account.models import CustomUser
 from .forms import PostForm
 
 # 페이지 렌더링할 때는 .html로 하고
@@ -11,11 +12,17 @@ from .forms import PostForm
 def home(request):
     posts = Post.objects.all()
     return render(request, 'home.html', {'posts':posts})
-# 디테일 페이지 렌더링
 
+# 디테일 페이지 렌더링
 def detail(request, postId):
     post = get_object_or_404(Post, pk = postId)
     return render(request, 'detail.html', {'post':post})
+
+# 프로필페이지 렌더링
+def profile(request, writerId):
+    writer=get_object_or_404(CustomUser, pk = writerId)
+    writer_posts= writer.posts.all()
+    return render(request, "profile.html", {'writer':writer, "writer_posts":writer_posts})
 
 # 생성 페이지 렌더링
 def new(request):
@@ -27,6 +34,7 @@ def create(request):
     form = PostForm(request.POST,request.FILES)
     if form.is_valid():
         new_post = form.save(commit=False)
+        new_post.writer = request.user
         new_post.pub_date = timezone.now()
         new_post.save()
         return redirect('detail', new_post.id)
