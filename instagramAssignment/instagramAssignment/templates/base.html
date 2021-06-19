@@ -1,41 +1,77 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>Instagram</title>
+    <link
+      href="{% static 'css/background.css'%}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="{% static 'css/base.css'%}" rel="stylesheet" type="text/css" />
+    {% block moreHead %} {% endblock %}
   </head>
   <body>
     <header>
-      <!--
       <div class="left_box">
+        <!--
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">logout</a>
+        <p>Hello, {{user}}!</p>
+        {% endif %}
+-->
         <div class="favicon_fame">
-          <img
-            src="../img/line_favicon.png"
-            alt="인스타 로고"
-            class="faviconFrame"
-          />
+          {% if user.is_authenticated %}
+          <a href="{% url 'new' %}">
+            <img
+              src="{% static 'img/line_favicon.png' %}"
+              alt="인스타 로고"
+              class="faviconFrame"
+            />
+          </a>
+          {% endif %}
         </div>
-        <div class="line">
-          <img src="../img/logo_text.png" alt="인스타 글씨" class="logo" />
-        </div>
+        <a href="{% url 'home' %}">
+          <div class="line">
+            <img
+              src="{% static 'img/logo_text.png' %}"
+              alt="인스타 글씨"
+              class="logo"
+            />
+          </div>
+        </a>
       </div>
 
       <div class="right_box">
+        {% if user.is_authenticated %}
         <div class="heart_box">
-          <img src="../img/liked.png" alt="알림" class="notification" />
+          <img
+            src="{% static 'img/liked.png' %}"
+            alt="알림"
+            class="notification"
+          />
         </div>
-        <div class="myInfo_box">
-          <img src="../img/myinfo.png" alt="내 프로필" class="myInfo" />
-        </div>
+        <a href="{%url 'profile' user.id%}"
+          ><div class="myInfo_box">
+            <img
+              src="{% static 'img/myinfo.png' %}"
+              alt="내 프로필"
+              class="myInfo"
+            /></div
+        ></a>
+        <a href="{% url 'logout' %}"><b>로그아웃</b></a>
+        {% endif %} {% if not user.is_authenticated %}
+        <a href="{% url 'login' %}"><b>로그인</b></a>
+        <a href="{% url 'signup' %}"><b>회원가입</b></a>
+        {% endif %}
       </div>
-      -->
-      {% if not user.is_authenticated %}
-      <a href="{% url 'login' %}">login</a>
-      <a href="{% url 'signup' %}">signup</a>
-      {% endif %} {% if user.is_authenticated %}
-      <a href="{% url 'logout' %}">logout</a>
+      <!--
+       {% if user.is_authenticated %}
+      
       <p>Hello, {{user}}!</p>
       {% endif %}
+      -->
     </header>
     <div class="container">{% block content %} {% endblock %}</div>
   </body>

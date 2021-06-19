@@ -1,8 +1,7 @@
-body {
-  margin: 0;
-}
-
 header {
+  position: fixed;
+  width: 100%;
+  background-color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -18,11 +17,21 @@ header {
   align-items: center;
 }
 
-img {
+header img {
   margin: 0 10px;
   height: 22px;
 }
 
-.line > img {
+header .line > img {
   height: 30px;
+}
+
+.right_box a {
+  text-decoration: none;
+  line-height: 22px;
+}
+.right_box b {
+  margin-left: 10px;
+  color: black;
+  font-size: 18px;
 }
