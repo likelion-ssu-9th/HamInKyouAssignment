@@ -1,11 +1,63 @@
-{% extends 'base.html' %} {% block content %}
-<form action="{% url 'signup' %}" method="post">
-  <!--method POST를 썼다면 아래의 토큰을 꼭 명시해주자!-->
-  {%csrf_token%}
-  <p>아이디: <input type="text" name="userId" /></p>
-  <p>이름: <input type="text" name="name" /></p>
-  <p>닉네임: <input type="text" name="nickName" /></p>
-  <p>비밀번호: <input type="password" name="password" /></p>
-  <button type="submit">submit</button>
-</form>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원가입 • Instagram</title>
+    <link
+      href="{% static 'css/background.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% static 'css/signUp.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="icon" href="{% static 'img/icon.png' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <form action="{% url 'signup' %}" method="post" class="signUp_container">
+        {%csrf_token%}
+        <div class="imgWrapper">
+          <a href="{% url 'home' %}">
+            <img
+              src="{% static 'img/logo_text.png' %}"
+              alt="instagramText"
+              class="instagramText"
+            />
+          </a>
+        </div>
+        <h2 class="joinLetter">친구들의 사진과 동영상을 보려면 가입하세요.</h2>
+        <hr class="line" />
+        <input
+          type="text"
+          placeholder="휴대폰 번호 또는 이메일 주소"
+          name="userId"
+          class="userSignUp"
+        />
+        <input type="text" placeholder="성명" name="name" class="userSignUp" />
+        <input
+          type="text"
+          placeholder="사용자 이름"
+          name="nickName"
+          class="userSignUp"
+        />
+        <input
+          type="password"
+          placeholder="비밀번호"
+          name="password"
+          class="userSignUp"
+        />
+        <button id="signUpButton" type="submit">가입</button>
+      </form>
+      <footer class="joinInsta">
+        <p class="join">
+          계정이 있으신가요?
+          <a href="{% url 'login' %}" class="joinBtn">로그인</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

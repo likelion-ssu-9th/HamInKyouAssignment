@@ -8,6 +8,11 @@
   padding: 80px 40px;
 }
 
+.signUp_container .imgWrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .signUp_container img {
   height: 51px;
   object-fit: contain;
@@ -43,6 +48,17 @@
   background-color: lightskyblue;
 }
 
+.signUp_container button:hover {
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  height: 36px;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(135, 170, 235);
+}
+
 .joinInsta {
   display: flex;
   flex-direction: row;
@@ -57,6 +73,7 @@
 .joinBtn {
   font-size: 15px;
   color: blue;
+  text-decoration: none;
   font-weight: bold;
   border: 0;
   background-color: inherit;

@@ -20,11 +20,15 @@
     <div class="container">
       <form action="{% url 'login' %}" method="post" class="login_container">
         {%csrf_token%}
-        <img
-          src="{% static 'img/logo_text.png' %}"
-          alt="instagramText"
-          class="instagramText"
-        />
+        <div class="imgWrapper">
+          <a href="{% url 'home' %}">
+            <img
+              src="{% static 'img/logo_text.png' %}"
+              alt="instagramText"
+              class="instagramText"
+            />
+          </a>
+        </div>
         <input
           type="text"
           placeholder="전화번호, 사용자 이름 또는 이메일"

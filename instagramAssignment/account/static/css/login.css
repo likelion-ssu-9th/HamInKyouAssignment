@@ -9,6 +9,11 @@
   padding: 80px 40px;
 }
 
+.login_container .imgWrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .login_container img {
   height: 51px;
   object-fit: contain;
