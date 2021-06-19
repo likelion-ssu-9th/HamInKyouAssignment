@@ -1,9 +1,50 @@
-{% extends 'base.html' %} {% block content %}
-<form action="{% url 'login' %}" method="post">
-  <!--method POST를 썼다면 아래의 토큰을 꼭 명시해주자!-->
-  {%csrf_token%}
-  <p>아이디: <input type="text" name="userId" /></p>
-  <p>비밀번호: <input type="password" name="password" /></p>
-  <button type="submit">submit</button>
-</form>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Instagram-로그인</title>
+    <link
+      href="{% static 'css/background.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% static 'css/login.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="icon" href="{% static 'img/icon.png' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <form action="{% url 'login' %}" method="post" class="login_container">
+        {%csrf_token%}
+        <img
+          src="{% static 'img/logo_text.png' %}"
+          alt="instagramText"
+          class="instagramText"
+        />
+        <input
+          type="text"
+          placeholder="전화번호, 사용자 이름 또는 이메일"
+          class="userLogin"
+          name="userId"
+        />
+        <input
+          type="password"
+          placeholder="비밀번호"
+          class="userLogin"
+          name="password"
+        />
+        <button id="loginButton" type="submit">로그인</button>
+      </form>
+      <footer class="joinInsta">
+        <p class="join">
+          계정이 없으신가요?
+          <a href="{% url 'signup' %}" class="joinBtn">가입하기</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

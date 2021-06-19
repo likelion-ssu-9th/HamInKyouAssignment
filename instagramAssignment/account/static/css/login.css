@@ -34,6 +34,17 @@
   background-color: lightskyblue;
 }
 
+.login_container button:hover {
+  font-size: 15px;
+  font-weight: bold;
+  height: 36px;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  background-color: rgb(135, 170, 235);
+}
+
 .joinInsta {
   display: flex;
   flex-direction: row;
@@ -49,6 +60,7 @@
   font-size: 15px;
   color: blue;
   font-weight: bold;
+  text-decoration: none;
   border: 0;
   background-color: inherit;
 }

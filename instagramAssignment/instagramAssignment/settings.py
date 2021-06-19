@@ -124,7 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'instagram', 'static')]
-STATICFILES_DIRS = []
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'instagram', 'static'),os.path.join(BASE_DIR, 'account', 'static')]
 #현재 static 파일들이 어디에 있는지
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
