@@ -1,11 +1,42 @@
-{{writer.nickName}}님이 쓰신 글 목록 {% for post in writer_posts %}
-<div>
-  <p>{{post.writer.nickName}}</p>
-  <p>{{post.pub_date}}</p>
-  <a href="{%url 'detail' post.id%}"
-    ><p><img src="{{post.image.url}}" /></p
-  ></a>
+{% extends 'base.html' %} {% load static %} {% block moreHead %}
+<link href="{% static 'css/profile.css'%}" rel="stylesheet" type="text/css" />
+{% endblock %} {% block content %}
+<!--프로필 헤더-->
+<div class="profileHeader">
+  <div class="profileImgBox">
+    <button>
+      <img
+        src="{% static '/img/ssu_likelion_logo_150x150.png'%}"
+        alt="profileImg"
+      />
+    </button>
+  </div>
+  <div class="profileInfoBox">
+    <div class="UserNickNameBox">
+      <h1>{{writer.nickName}}</h1>
+      <button>프로필 편집</button>
+    </div>
+    <div class="UserFeedInfo">
+      <ul>
+        <li>000 게시물</li>
+        <li>000 팔로워</li>
+        <li>000 팔로잉</li>
+      </ul>
+    </div>
+    <div>hello world✈</div>
+  </div>
 </div>
-<br />
-<br />
-{% endfor %}
+
+<!--유저 피드-->
+<main>
+  {% for post in writer_posts %}
+  <div class="postCard">
+    <img src="{{post.image.url}}" />
+    <ul aria-hidden="true">
+      <li>Likes: 0</li>
+      <li>Comments: 0</li>
+    </ul>
+  </div>
+  {% endfor %}
+</main>
+{% endblock %}

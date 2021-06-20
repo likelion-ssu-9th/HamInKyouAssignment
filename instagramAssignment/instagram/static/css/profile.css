@@ -1,4 +1,4 @@
-body {
+.container {
   margin: 0;
   width: 100vw;
   min-height: 100vh;
@@ -8,18 +8,20 @@ body {
   font-size: 15px;
 }
 
-body * {
+.container * {
   box-sizing: border-box;
 }
 
-header,
-main {
+.profileHeader,
+.container main {
+  position: relative;
+  border: 0;
   width: 900px;
   display: flex;
 }
 
-header {
-  margin-top: 100px;
+.container .profileHeader {
+  padding-top: 100px;
   align-items: center;
 }
 
@@ -29,7 +31,7 @@ header {
   border-radius: 50%;
 }
 
-.profileImgBox img {
+.profileHeader .profileImgBox img {
   border-radius: 50%;
 }
 
@@ -62,7 +64,7 @@ header {
   margin: 0 30px;
 }
 
-main {
+.container main {
   margin-top: 50px;
   flex-wrap: wrap;
 }

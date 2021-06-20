@@ -12,6 +12,11 @@
   font-weight: 500;
 }
 
+.userNickName a {
+  text-decoration: none;
+  color: black;
+}
+
 .cardImage img {
   width: 100%;
 }
@@ -38,4 +43,8 @@
   padding: 8px 5px;
   border: 0;
   border-top: rgb(228, 227, 227) 1px solid;
+}
+
+.infoRight a {
+  text-decoration: none;
 }
