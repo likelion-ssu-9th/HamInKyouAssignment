@@ -56,6 +56,7 @@ def update(request, postId):
     form = PostForm(request.POST,request.FILES)
     if form.is_valid():
         update_post = form.save(commit=False)
+        update_post.writer = request.user
         update_post.pub_date = timezone.now()
         update_post.save()
         return redirect('detail', update_post.id)
